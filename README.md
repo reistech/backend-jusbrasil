@@ -3,6 +3,7 @@
 - [Estrutura do Projeto](#estrutura-do-projeto)
 - [Requisitos](#requisitos)
 - [Configurações](#configurações)
+    - [Git](#git)
     - [Instalação via Docker](#instalação-via-docker)
 - [Sobre](#sobre)
 
@@ -15,6 +16,18 @@ Estrutura dos diretórios:
 * **.docker**: Contém os arquivos de configuração do Docker (Dockerfile) para construção dos containers usados no projeto;
 * **backend**: Diretório com uma solução .NET contendo dois projetos: API para disponilização da infra-estrutura do backend; e Test com os testes unitários do projeto API;
 * **scripts**: Contém arquivos de configuração para execução do projeto usando Docker;     
+
+
+### Git
+
+Após clonar o repositório, acesse a pasta do projeto e configure o usuário git com os seguintes comandos: 
+
+```sh
+$ git config --local user.name "<nome>"
+$ git config --local user.email "<email gitlab>"
+```
+
+Se o usuário git já foi configurado, desconsiderar esse passo.
 
 
 ## Requisitos
