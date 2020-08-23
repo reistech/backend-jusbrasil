@@ -1,11 +1,22 @@
 # Jusbrasil - Desafio Backend Engineer | Data
 
+- [Planejamento Desafio](#estrutura-do-projeto)
 - [Estrutura do Projeto](#estrutura-do-projeto)
 - [Requisitos](#requisitos)
 - [Configurações](#configurações)
     - [Git](#git)
     - [Instalação via Docker](#instalação-via-docker)
 - [Sobre](#sobre)
+
+
+## Planejamento do Desafio
+
+Para esse desafio foi utilizado metodólogia Scrum com sprint com duração de 5 dias, planejado a finalização em até 3 sprint's.
+
+![alt text](https://uploaddeimagens.com.br/imagens/rCUeVZs)
+
+
+
 
 ## Estrutura do Projeto
 
