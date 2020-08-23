@@ -13,7 +13,7 @@
 
 Para esse desafio foi utilizado metodólogia Scrum com sprint com duração de 5 dias, planejado a finalização em até 3 sprint's.
 
-![planejamento](https://ibb.co/W0JrT4S)
+![planejamento](https://i.ibb.co/68CKd76/Captura-de-Tela-2020-08-20-a-s-22-05-18.png)
 
 
 
