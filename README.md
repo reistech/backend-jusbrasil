@@ -1,5 +1,90 @@
 # Jusbrasil - Desafio Backend Engineer | Data
 
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Requisitos](#requisitos)
+- [Configurações](#configurações)
+    - [Instalação via Docker](#instalação-via-docker)
+- [Sobre](#sobre)
+
+## Estrutura do Projeto
+
+O projeto tem uma estrutura composta pelo *backend* em [.NET Core](https://dotnet.microsoft.com/). 
+
+Estrutura dos diretórios:    
+
+* **.docker**: Contém os arquivos de configuração do Docker (Dockerfile) para construção dos containers usados no projeto;
+* **backend**: Diretório com uma solução .NET contendo dois projetos: API para disponilização da infra-estrutura do backend; e Test com os testes unitários do projeto API;
+* **scripts**: Contém arquivos de configuração para execução do projeto usando Docker;     
+
+
+## Requisitos
+
+Para desenvolvimento e utilização do projeto são necessárias as seguintes dependências (algumas não são necessárias com a utilização do Docker, ver abaixo): 
+
+- [.Net Core](https://dotnet.microsoft.com/): Utilitário do SDK .Net Core, com ferramentas necessárias para execução, build do *backend*
+- [Docker](https://docs.docker.com/): Permite a utilização de *containers* para execução do projeto
+- [Docker Compose](https://docs.docker.com/compose/): Utilitário do Docker para orquestrar o comportamento de execução dos *containers*
+
+## Configurações
+
+Essa seção detalha as configurações necessárias para criar um ambiente de desenvolvimento local.
+
+### Instalação via Docker
+
+Inicialmente, configure o arquivo .env usado no ambiente local, copiando o arquivo .env-example e renomeando-o para .env. Esse arquivo contém as variáveis de configuração utilizadas nos scripts do Docker. Altere conforme o seu ambiente local de desenvolvimento.
+
+Para criar a rede Docker e inicializar o **container** execute o seguinte comando:
+
+```sh
+$ bash ./scripts/configure.sh
+$ bash ./scripts/create-network.sh
+$ bash ./scripts/start-container.sh
+```
+
+Para inicializar o servidor dotnet dentro do container utilize o comando abaixo:
+
+```sh
+$ bash ./scripts/start-server.sh
+```
+
+Para destruir o container e destruir a rede docker execute:
+
+```sh
+$ bash ./scripts/stop-container.sh
+$ bash ./scripts/destroy-network.sh
+```
+
+### Configuração ambiente .NET
+
+A execução do projeto .Net Core depende de arquivos com perfis de configuração, de acordo com o ambiente para reprodução do projeto (*appsettings.json*). Por padrão, o .Net Core utiliza sempre o perfil *Development*.
+
+O perfil de execução do projeto é controlado pela variável de ambiente ASPNETCORE_ENVIRONMENT. Se essa variável não estiver presente na máquina do usuário, assume-se o perfil padrão (*Development*). Para utilizar o perfil *Local*, configure a variável de ambiente ASPNETCORE_ENVIRONMENT como Local. No Windows utilize as opções avançadas de sistema e cria a variável ou utilize o seguinte comando no Git Bash: 
+
+```$ setx ASPNETCORE_ENVIRONMENT Local```
+
+No Linux, utilize o seguinte comando: 
+
+```$ export ASPNETCORE_ENVIRONMENT=Local```
+
+*Obs*: Para que a variável seja reconhecida pela Bash/CMD, é necessária encerrar o terminal atual e iniciar outra sessão.
+
+
+### Instalação Manual
+
+Essa seção detalha como o projeto pode ser configurado manualmente, sem uso do Docker. Para instalação manual é necessário que as dependências básicas listadas na seção [Requisitos](#requisitos) estejam instaladas. 
+
+#### Backend (API)
+
+Se estiver usando a IDE do Visual Studio no Windows, simplesmente importe o projeto através do arquivo de solução (*backend.sln*) e crie uma configuração para executar a aplicação. 
+
+No Linux é necessário utilizar o CLI do .Net Core. Após a instalação execute o comando: 
+
+```$ dotnet run``` 
+
+Esse comando irá instalar as dependências e colocar o projeto em execução, de acordo com o perfil de execução indicado. A API estará em execução no endereço [http://localhost:5000/api/Home](http://localhost:5000/api/Home)
+
+## Sobre
+
 Olá! Esse desafio técnico tem como propósito medir suas habilidades, ver como estuda, pensa e se organiza na prática. A stack tecnológica utilizada é de sua escolha e o tempo de término é livre.
 
 Após finalizar o desafio, nos envie um link para repositório do projeto ou um zip com o código.
