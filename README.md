@@ -20,9 +20,9 @@ Para esse desafio foi utilizado metodologia Scrum com sprint com duração de 5 
 
 ## Estrutura do Projeto
 
-O projeto tem uma estrutura composta pelo *backend* em [.NET Core](https://dotnet.microsoft.com/). 
+O projeto tem uma estrutura contendo o *backend* em [.NET Core](https://dotnet.microsoft.com/), ambiente com containers em [Docker](https://www.docker.com/) , Deploy na nuvem [Azure](https://azure.microsoft.com/pt-br/) e integração continua com [Github Actions](https://docs.github.com/pt/actions/),
 
-Estrutura dos diretórios:    
+Estrutura:    
 
 * **.docker**: Contém os arquivos de configuração do Docker (Dockerfile) para construção dos containers usados no projeto;
 * **backend**: Diretório com uma solução .NET contendo dois projetos: API para disponilização da infra-estrutura do backend; e Test com os testes unitários do projeto API;
