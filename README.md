@@ -16,8 +16,6 @@ Para esse desafio foi utilizado metodologia Scrum com sprint com duração de 5 
 ![planejamento](https://i.ibb.co/68CKd76/Captura-de-Tela-2020-08-20-a-s-22-05-18.png)
 
 
-
-
 ## Estrutura do Projeto
 
 O projeto tem uma estrutura contendo o *backend* em [.NET Core](https://dotnet.microsoft.com/), ambiente com containers em [Docker](https://www.docker.com/) , Deploy na nuvem [Azure](https://azure.microsoft.com/pt-br/) e integração continua com [Github Actions](https://docs.github.com/pt/actions/),

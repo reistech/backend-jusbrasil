@@ -1,19 +1,16 @@
-
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine AS build-env
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 
-# Copiar csproj e restaurar dependencias
-COPY *.csproj ./
-RUN dotnet restore
+COPY *.csproj ./src/
+RUN dotnet restore "src/src.csproj"
 
-RUN pwsh -Command Write-Host "jusbrasil: Gerando uma nova imagem Docker com Alpine e testando o PowerShell Core"
+COPY . ./GitHubWebApp/
+WORKDIR /src/GitHubWebApp
+RUN dotnet publish -c Release -o publish
 
-# Build da aplicacao
-COPY . ./
-RUN dotnet publish -c Release -o out
-
-# Build da imagem
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine
-WORKDIR /src
-COPY --from=build-env /src/out .
-ENTRYPOINT ["dotnet", "jusbrasil.dll"]
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS runtime
+WORKDIR /app
+EXPOSE 80
+EXPOSE 443
+COPY --from=build /src/src/publish ./
+ENTRYPOINT ["dotnet", "src.dll"]
