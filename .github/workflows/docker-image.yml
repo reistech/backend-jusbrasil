@@ -27,5 +27,5 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - run: |
-          docker build . --file Dockerfile --tag ${{ secrets.DOCKER_CONTAINER_REGISTRY }}/${{ secrets.NOME_IMAGEM }}:$GITHUB_RUN_NUMBER
+          docker build  --file Dockerfile --tag ${{ secrets.DOCKER_CONTAINER_REGISTRY }}/${{ secrets.NOME_IMAGEM }}:$GITHUB_RUN_NUMBER
           docker push ${{ secrets.DOCKER_CONTAINNER_REGISTRY }}/src:${{ github.sha }} 
