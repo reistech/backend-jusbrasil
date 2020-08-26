@@ -14,11 +14,12 @@ jobs:
     - name: Docker Login - Azure Container Registry
       uses: Azure/docker-login@v1
       with:
+        login-server: backendjusbrasilgithubactions
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build e Push no Azure Container Registry
       run: |
-        docker build . --file Dockerfile --tag ${{ secrets.DOCKER_CONTAINER_REGISTRY }}/jusbrasil
-        docker tag ${{ secrets.DOCKER_CONTAINER_REGISTRY }}/jusbrasil  ${{ secrets.DOCKER_CONTAINER_REGISTRY }}/jusbrasil:$(date +%s)
-        docker push ${{ secrets.DOCKER_CONTAINER_REGISTRY }}/jusbrasil
+        docker build . --file Dockerfile --tag ${{ secrets.DOCKER_CONTAINER_REGISTRY }}/${{ secrets.NOME_IMAGEM }}:$GITHUB_RUN_NUMBER
+        docker tag ${{ secrets.DOCKER_CONTAINER_REGISTRY }}/${{ secrets.NOME_IMAGEM }}:$GITHUB_RUN_NUMBER ${{ secrets.DOCKER_CONTAINER_REGISTRY }}/${{ secrets.NOME_IMAGEM }}:latest
+        docker push ${{ secrets.DOCKER_CONTAINER_REGISTRY }}/${{ secrets.NOME_IMAGEM }}
