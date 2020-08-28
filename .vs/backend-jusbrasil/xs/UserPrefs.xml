@@ -1,15 +1,26 @@
 ﻿<Properties StartupConfiguration="{746FA194-3DA5-4D81-AFF9-91405DCFC29D}|src">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.test FirstBuild="True" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="test/Controllers/ProcessoTribunalControllerTest.cs">
+    <Files>
+      <File FileName="test/Controllers/ProcessoTribunalControllerTest.cs" Line="1" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="backend-jusbrasil" expanded="True">
             <Node name="src" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="WeatherForecastController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="Interfaces" expanded="True" />
+              <Node name="Models" expanded="True" />
               <Node name="Properties" expanded="True" />
+              <Node name="Services" expanded="True" />
               <Node name="appsettings.json" expanded="True" />
+            </Node>
+            <Node name="test" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="ProcessoTribunalControllerTest.cs" selected="True" />
+              </Node>
+              <Node name="Services" expanded="True" />
             </Node>
           </Node>
         </State>
