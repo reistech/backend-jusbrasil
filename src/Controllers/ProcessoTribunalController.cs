@@ -23,14 +23,13 @@ namespace src.Controllers
 
         /// <summary>
         ///  Buscar todos os processos nos Tribunais de TJAL e TJMS 
-        ///
+        ///  <param name="numeroProcesso"></param>
         /// </summary>
         [HttpGet]
-        public List<Processo>  Get ()
+        public List<Processo>  Get (string numeroProcesso )
         {
 
             return   new List<Processo>();
-
         }
     }
 }
