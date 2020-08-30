@@ -1,9 +1,10 @@
 ﻿<Properties StartupConfiguration="{746FA194-3DA5-4D81-AFF9-91405DCFC29D}|src">
   <MonoDevelop.Ide.ItemProperties.test FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="src/Services/ProcessoTribunalService.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="test/Controllers/ProcessoTribunalControllerTest.cs">
     <Files>
       <File FileName="src/Services/ProcessoTribunalService.cs" Line="12" Column="34" />
       <File FileName="src/Interfaces/IProcessoTribunalService.cs" />
+      <File FileName="test/Controllers/ProcessoTribunalControllerTest.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,14 +15,14 @@
               <Node name="Interfaces" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Properties" expanded="True" />
-              <Node name="Services" expanded="True">
-                <Node name="ProcessoTribunalService.cs" selected="True" />
-              </Node>
+              <Node name="Services" expanded="True" />
               <Node name="Utils" expanded="True" />
               <Node name="appsettings.json" expanded="True" />
             </Node>
             <Node name="test" expanded="True">
-              <Node name="Controllers" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="ProcessoTribunalControllerTest.cs" selected="True" />
+              </Node>
               <Node name="Services" expanded="True" />
             </Node>
           </Node>
