@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using src.Interfaces;
 using src.Models;
@@ -8,7 +9,7 @@ namespace src.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProcessoTribunalController
+    public class ProcessoTribunalController : Controller
     {
         private readonly IProcessoTribunalService _processoTribunalService;
 
@@ -26,10 +27,15 @@ namespace src.Controllers
         ///  <param name="numeroProcesso"></param>
         /// </summary>
         [HttpGet]
-        public List<Processo>  Get (string numeroProcesso )
+        public List<Processo> Get (string numeroProcesso )
         {
+            List<Processo> result =  _processoTribunalService.BuscarProcessos(numeroProcesso);
 
-            return   new List<Processo>();
+            if (result != null)
+                return result;
+            else
+                return null;
+
         }
     }
 }
