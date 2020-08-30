@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using src.Interfaces;
 using src.Models;
 
 namespace src.Services
 {
-    public class ProcessoTribunalService
+    public class ProcessoTribunalService : IProcessoTribunalService
     {
-        public List<Processo> BuscarProcessos(string numeroProcesso)
+        public Processo ObterProcessoTribunal(string numeroProcesso)
         {
-            // converte numero processo
-            //Chamar o webCrawler
-            return new List<Processo>();
+            return new Processo();
         }
     }
 }

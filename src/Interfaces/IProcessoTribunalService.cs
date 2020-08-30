@@ -7,6 +7,6 @@ namespace src.Interfaces
 {
     public interface IProcessoTribunalService
     {
-        List<Processo> BuscarProcessos(string numeroProcesso);
+        Processo ObterProcessoTribunal(string numeroProcesso);
     }
 }

@@ -4,14 +4,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using src.Interfaces;
 using src.Models;
+using src.ViewModel;
 
 namespace src.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class ProcessoTribunalController : Controller
     {
-        private readonly IProcessoTribunalService _processoTribunalService;
+        private readonly IProcessoTribunalService processoTribunalService;
 
         /// <summary>
         /// Método constructor do processo tribunal controller que receber como parametro um processo tribunal service
@@ -19,22 +21,24 @@ namespace src.Controllers
         /// <param name="processoTribunalService"></param>
         public ProcessoTribunalController( IProcessoTribunalService processoTribunalService)
         {
-            _processoTribunalService = processoTribunalService;
+            this.processoTribunalService = processoTribunalService;
         }
 
         /// <summary>
         ///  Buscar todos os processos nos Tribunais de TJAL e TJMS 
         ///  <param name="numeroProcesso"></param>
         /// </summary>
-        [HttpGet]
-        public List<Processo> Get (string numeroProcesso )
+        [HttpGet("ObterProcessoTribunal/{numeroProcesso}")]
+        public ActionResult Get(string numeroProcesso )
         {
-            List<Processo> result =  _processoTribunalService.BuscarProcessos(numeroProcesso);
+            if (numeroProcesso == "" || numeroProcesso == null)
+            {
+                return BadRequest(new Response() { Result = false, Message = "Requisição inválida" });
+            }
 
-            if (result != null)
-                return result;
-            else
-                return null;
+            Processo result = this.processoTribunalService.ObterProcessoTribunal(numeroProcesso);
+
+            return Ok(new Response() { Data = result, Result = true });
 
         }
     }
